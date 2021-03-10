@@ -1,0 +1,48 @@
+<div class="bg">
+<div class="main">
+  <p class="sign center">Sign up</p>
+  <form [formGroup]="registerData" (ngSubmit)="onSubmit()" novalidate>
+    <div>  
+        <input   class="un center" type="text" placeholder="enter your first" formControlName="FNAME">
+    </div>
+    <div>
+        <span style="color: red;" *ngIf="registerData.get('FNAME').hasError('required') && registerData.get('FNAME').touched">
+minimum 4 charechters
+        </span>
+    </div>
+
+    <div>  
+        <input  class="un center" type="text" placeholder="enter your last-name" formControlName="LNAME">
+    </div>
+    <div>
+        <span style="color: red;" *ngIf="registerData.get('LNAME').hasError('required') && registerData.get('LNAME').touched">
+minimum 4 charechters
+        </span>
+    </div>
+
+    <div>  
+        <input type="email"  class="un center" placeholder="enter your email"   formControlName="Email">
+
+    </div>
+    <div>
+        <span style="color: red;" *ngIf="registerData.get('Email').hasError('required') && registerData.get('Email').touched">email is manditory</span>
+        <span style="color: red;" *ngIf="registerData.get('Email').hasError('pattern')">invalied emaill</span>
+    </div>
+
+    
+        <div>  
+            <input type="password"  class="un center" placeholder="password" formControlName="PASSWORD">
+        </div>
+        <div>
+            <span style="color: red;" *ngIf="registerData.get('PASSWORD').hasError('required') && registerData.get('PASSWORD').touched">
+    minimum 8 charechters
+            </span>
+        </div>
+        
+        <div>
+   <button type="submit" class="submit center" > sign up</button>
+   <button  class="submit center"  routerLink='/login' routerLinkActive="router-link-active"  > login</button>
+</div>
+</form>
+</div>
+</div>

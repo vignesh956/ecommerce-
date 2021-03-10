@@ -1,0 +1,31 @@
+<div class="bg">
+<div class="main">
+    <p class="sign center">Sign in</p>
+    <form [formGroup]="loginData" (ngSubmit)="formSubmit()">
+        <div>
+          <input type="text" class="un center" placeholder="email" formControlName="Email">
+        </div>
+        <div>
+          <span style="color: red;"
+            *ngIf="loginData.get('Email').hasError('required') && loginData.get('Email').touched">email is manditory</span>
+          <span style="color: red;" *ngIf="loginData.get('Email').hasError('pattern')">invalied emaill</span>
+        </div>
+        <div>
+          <input type="password" class="pass center" placeholder="enter password" formControlName="password">
+        </div>
+        <div>
+
+          <button type="submit"  class="submit center" >login</button>
+          <button type="submit"  class="submit center"  routerLink='/signup' routerLinkActive="router-link-active" >signup</button>
+
+        </div>
+        <p class="forgot center"><a href="#">Forgot Password?</a></p>
+      </form>
+  </div>
+  
+
+
+
+
+
+</div>

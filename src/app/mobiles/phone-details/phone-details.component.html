@@ -1,0 +1,24 @@
+
+  <div  style="float: left;" class="bg">
+    <ion-card style="height: 389px;
+    width: 305px;">
+      <div>
+        <ion-img style="    width: 281px;
+        height: 200px;    margin: 10px;
+    " src= {{resultDisplay.image}}></ion-img>
+      </div>
+
+      <div class="total-div">
+      <ion-text style="font-size: 22px;margin-left: 41px">
+        <b> {{ resultDisplay.brand }}</b>
+      </ion-text>
+      <br /><br />
+      <ion-title style="margin-left: 20px;font-size: 27px;"
+        ><b>{{ resultDisplay.price }}Rs</b>
+      </ion-title>
+      <ion-text>
+        {{resultDisplay.moredetails}}
+      </ion-text>
+</div>
+    </ion-card>
+  </div>

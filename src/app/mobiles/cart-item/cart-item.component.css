@@ -1,0 +1,30 @@
+.main-div {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+  }
+  p {
+    font-size: 35px;
+    margin: auto;
+  }
+  .second {
+    height: 500px;
+    width: 590px;
+    background-color: white;
+    display: none;
+  }
+  .second:hover {
+    height: 200px;
+    width: 290px;
+    background-color: red;
+    display: block !important;
+  }
+  
+  .first {
+    height: 600px;
+    width: 590px;
+    background-color: blueviolet;
+  }
+  

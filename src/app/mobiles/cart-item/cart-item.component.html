@@ -1,0 +1,14 @@
+    <ion-row>
+      <ion-col class="ion-cols" size="6">
+        <div class="main-div" *ngFor="let article of articles">
+          <h4>{{ article.talk.brand }}</h4>
+          <p>{{ article.talk.price }}</p>
+          <p>({{ article.quantity }})</p>
+        </div>
+      </ion-col>
+      <ion-col>
+        <h1>Total price</h1>
+        <h3>{{ totalPrice }}</h3>
+      </ion-col>
+    </ion-row>
+  

@@ -1,0 +1,96 @@
+<div class="bg">
+  <div>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="mobiles = true; desktops = false; ">Redmi Mobiles</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button  (click)="mobiles = false; desktops = true;">Samsung Mobiles </ion-button>
+      </ion-col>
+     
+    </ion-row>
+  </div>
+
+
+
+  <div  *ngIf="mobiles">
+    <div>
+      <ion-row>
+        <ion-col>
+          <h1> Redimi Mobiles</h1>  
+
+        </ion-col>
+    <ion-col>
+      <ion-item>
+        <ion-range (ionChange)="callPriceRange()" style="padding: 10px" id="dual-range" min="10" max="50000"
+          [(ngModel)]="knobValues" dual-knobs pin color="dark">
+          <ion-label slot="start">Price Range:</ion-label>
+          <p slot="start">{{ knobValues.lower }}Rs</p>
+          <p slot="end" (ionChange)="callPriceRange()">{{ knobValues.upper }}Rs</p>
+
+        </ion-range>
+      </ion-item>
+    </ion-col>
+        <ion-col>
+          <input type="text" placeholder="search mobile name" class="input1"  [(ngModel)]="term">
+
+        </ion-col>
+        <ion-col>
+          <ion-button style="margin-top: -10px" (click)="totalItems(mdata)" routerLink='cart' routerLinkActive="router-link-active" > Go To Cart({{totalItem}}<ion-icon name="cart"></ion-icon>) </ion-button>
+
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngFor="let talk of redmiMobiles  " style="float: left;" >
+      <div  class="card">
+        <div>
+          <ion-img style="    width: 281px;
+               height: 200px;    margin: 10px;
+           " src={{talk.image}}></ion-img>
+        </div>
+
+        <div class="total-div">
+          <ion-text style="font-size: 22px;margin-left: 41px">
+            <b> {{ talk.brand }}</b>
+          </ion-text>
+          <br /><br />
+          <ion-title style="margin-left: 20px;font-size: 27px;"><b>{{ talk.price }}Rs</b>
+          </ion-title>
+          <ion-button routerLink="/mobiles/details/{{talk.brand}}" class="more-details">more detais</ion-button>
+          <ion-button class="more-details" (click)="totalItems(talk)">Add to cart<ion-icon name="cart" ></ion-icon
+            ></ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="desktops">
+    <h1> Samsung Mobiles</h1>
+    <div *ngFor="let talk of redmiMobiles " style="float: left;">
+      <ion-card style="height: auto;
+           width: 305px;">
+        <div>
+          <ion-img style="    width: 281px;
+               height: 200px;    margin: 10px;
+           " src={{talk.image}}></ion-img>
+        </div>
+
+        <div class="total-div">
+          <ion-text style="font-size: 22px;margin-left: 41px">
+            <b> {{ talk.brand }}</b>
+          </ion-text>
+          <br /><br />
+          <ion-title style="margin-left: 20px;font-size: 27px;"><b>{{ talk.price }}Rs</b>
+          </ion-title>
+          <ion-button routerLink="/mobiles/details/{{talk.brand}}" class="more-details">more detais</ion-button>
+          <ion-button class="more-details" (click)="totalItems(talk)">Add to cart<ion-icon name="cart" ></ion-icon
+            ></ion-button>
+            <h5>{{totalItem}}</h5>
+        </div>
+      </ion-card>
+    </div>
+  </div>
+
+
+</div>
